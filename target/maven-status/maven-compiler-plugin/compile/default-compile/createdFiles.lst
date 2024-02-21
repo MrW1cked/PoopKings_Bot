@@ -1,0 +1,8 @@
+com/back/PoopKings/PoopKingsApplication.class
+com/back/PoopKings/models/PodiumMO.class
+com/back/PoopKings/PoopKingsBot.class
+com/back/PoopKings/models/PodiumPK.class
+com/back/PoopKings/models/PodiumMO$PodiumMOBuilder.class
+com/back/PoopKings/repositories/PodiumRepository.class
+com/back/PoopKings/models/RandomSentences.class
+com/back/PoopKings/models/PodiumPK$PodiumPKBuilder.class

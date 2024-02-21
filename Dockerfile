@@ -1,5 +1,11 @@
-FROM eclipse-temurin:17.0.10_7-jre-jammy
-VOLUME /tmp
-ARG JAR_FILE=target/PoopKings-0.0.2-SNAPSHOT.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["sh", "-c", "java ${JAVA_OPTS} -jar /app.jar ${0} ${@}"]
+FROM maven:3.6.0-jdk-11-slim AS build
+COPY src src
+COPY pom.xml app
+RUN pom.xml clean package
+
+#
+# PACKAGE STAGE
+#
+FROM openjdk:11-jre-slim
+COPY --from=build target/PoopKings-0.0.2-SNAPSHOT.jar PoopKings-0.0.2-SNAPSHOT.jar
+CMD ["java","-jar","PoopKings-0.0.2-SNAPSHOT.jar"]
