@@ -1,6 +1,6 @@
-/Users/nusousa/Desktop/www/PoopKings-Bot/src/main/java/com/back/PoopKings/PoopKingsBot.java
-/Users/nusousa/Desktop/www/PoopKings-Bot/src/main/java/com/back/PoopKings/models/PodiumPK.java
+/Users/nusousa/Desktop/www/PoopKings-Bot/src/main/java/com/back/PoopKings/models/database/PodiumMO.java
+/Users/nusousa/Desktop/www/PoopKings-Bot/src/main/java/com/back/PoopKings/adapters/PoopKingsBotUseCase.java
 /Users/nusousa/Desktop/www/PoopKings-Bot/src/main/java/com/back/PoopKings/PoopKingsApplication.java
-/Users/nusousa/Desktop/www/PoopKings-Bot/src/main/java/com/back/PoopKings/models/PodiumMO.java
+/Users/nusousa/Desktop/www/PoopKings-Bot/src/main/java/com/back/PoopKings/models/database/PodiumPK.java
 /Users/nusousa/Desktop/www/PoopKings-Bot/src/main/java/com/back/PoopKings/repositories/PodiumRepository.java
 /Users/nusousa/Desktop/www/PoopKings-Bot/src/main/java/com/back/PoopKings/models/RandomSentences.java

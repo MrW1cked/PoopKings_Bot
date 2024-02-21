@@ -1,5 +1,6 @@
 package com.back.PoopKings;
 
+import com.back.PoopKings.adapters.PoopKingsBotUseCase;
 import com.back.PoopKings.repositories.PodiumRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,7 +24,7 @@ public class PoopKingsApplication {
 
         // Register our bot
         try {
-            telegramBotsApi.registerBot(new PoopKingsBot(podiumRepository));
+            telegramBotsApi.registerBot(new PoopKingsBotUseCase(podiumRepository));
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }

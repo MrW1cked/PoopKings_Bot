@@ -1,9 +1,8 @@
 package com.back.PoopKings.repositories;
 
-import com.back.PoopKings.models.PodiumMO;
-import com.back.PoopKings.models.PodiumPK;
+import com.back.PoopKings.models.database.PodiumMO;
+import com.back.PoopKings.models.database.PodiumPK;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
