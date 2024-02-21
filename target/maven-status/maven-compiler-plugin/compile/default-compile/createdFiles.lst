@@ -1,8 +1,8 @@
-com/back/PoopKings/PoopKingsApplication.class
-com/back/PoopKings/adapters/PoopKingsBotUseCase.class
-com/back/PoopKings/models/database/PodiumPK$PodiumPKBuilder.class
-com/back/PoopKings/models/database/PodiumPK.class
-com/back/PoopKings/repositories/PodiumRepository.class
-com/back/PoopKings/models/database/PodiumMO$PodiumMOBuilder.class
-com/back/PoopKings/models/RandomSentences.class
-com/back/PoopKings/models/database/PodiumMO.class
+com/back/poopkings/repositories/PodiumRepository.class
+com/back/poopkings/PoopKingsApplication.class
+com/back/poopkings/models/database/PodiumPK$PodiumPKBuilder.class
+com/back/poopkings/models/database/PodiumPK.class
+com/back/poopkings/models/database/PodiumMO.class
+com/back/poopkings/adapters/PoopKingsBotUseCase.class
+com/back/poopkings/models/RandomSentences.class
+com/back/poopkings/models/database/PodiumMO$PodiumMOBuilder.class
