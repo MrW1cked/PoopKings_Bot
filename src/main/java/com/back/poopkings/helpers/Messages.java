@@ -26,6 +26,8 @@ public class Messages {
     public Messages() {
         //Portuguese sentences
         sentencesPT = new ArrayList<>();
+        sentencesEN = new ArrayList<>();
+        sentencesES = new ArrayList<>();
         sentencesPT.add("Ah coisa linda que tu fizeste\\!");
         sentencesPT.add("Chega a ser impresionante o que sai dessa boc\\.\\.\\. desse cú");
         sentencesPT.add("A cag@r assim intopes a canalização numa semana");
@@ -62,22 +64,22 @@ public class Messages {
         sentencesEN.add("You\\'re my hero\\! What a big torpedo\\!");
 
         // Spanish sentences
-        sentencesES.add("\\¡Qué bonita obra de arte acabas de crear\\!");
-        sentencesES.add("\\Es impresionante lo que puede salir de ahí abajo\\!");
+        sentencesES.add("¡Qué bonita obra de arte acabas de crear\\!");
+        sentencesES.add("Es impresionante lo que puede salir de ahí abajo\\!");
         sentencesES.add("Con esa cagada\\, podrías atascar el retrete en una semana\\!");
-        sentencesES.add("\\¡Uno\\, dos\\, tres\\, todos cagamos a la vez\\!");
-        sentencesES.add("\\¡Si cagar fuera un trabajo, estarías millonario/a!");
-        sentencesES.add("\\¿Ya limpiaste el culo\\?");
-        sentencesES.add("\\¡Estás cagando con maestría\\!");
-        sentencesES.add("\\¿Abriste una fábrica de mierda o qué\\?");
-        sentencesES.add("Tu culo es un poeta. Limpialo y lee el poema que escribió\\.");
-        sentencesES.add("\\¡Zas! \\¡Ya perdiste 50 kilos\\!");
-        sentencesES.add("\\¡Una parte de ti se ha ido... ¡adiós!");
-        sentencesES.add("\\¡Feliz día liberando a un prisionero!");
-        sentencesES.add("\\¡Vas a tener que romperlo a la mitad para que quepa\\!");
-        sentencesES.add("\\¡Tu trasero debe estar en el Libro Guinness\\, seguro\\!");
-        sentencesES.add("\\¡Gracias por contribuir a esta noble causa \\<3\\!");
-        sentencesES.add("\\¡Eres mi héroe\\! \\¡Qué pedazo de torpedo\\!");
+        sentencesES.add("¡Uno\\, dos\\, tres\\, todos cagamos a la vez\\!");
+        sentencesES.add("¡Si cagar fuera un trabajo\\, estarías millonario/a\\!");
+        sentencesES.add("¿Ya limpiaste el culo\\?");
+        sentencesES.add("¡Estás cagando con maestría\\!");
+        sentencesES.add("¿Abriste una fábrica de mierda o qué\\?");
+        sentencesES.add("Tu culo es un poeta\\. Limpialo y lee el poema que escribió\\.");
+        sentencesES.add("¡Zas\\! ¡Ya perdiste 50 kilos\\!");
+        sentencesES.add("¡Una parte de ti se ha ido\\.\\.\\. ¡adiós!");
+        sentencesES.add("¡Feliz día liberando a un prisionero!");
+        sentencesES.add("¡Vas a tener que romperlo a la mitad para que quepa\\!");
+        sentencesES.add("¡Tu trasero debe estar en el Libro Guinness\\, seguro\\!");
+        sentencesES.add("¡Gracias por contribuir a esta noble causa \\<3\\!");
+        sentencesES.add("¡Eres mi héroe\\! ¡Qué pedazo de torpedo\\!");
     }
 
     public String getLocaleMessage() {
@@ -96,7 +98,7 @@ public class Messages {
                 "A lista de comandos é simples\\. So tens de escrever uma mensagem normal com o texto:\n" +
                 "/poop ou /poop@PoopKings\\_bot \\- Adiciona \\+1 \uD83D\uDCA9 ao teu total de cagadelas \n" +
                 "/top ou /top@PoopKings\\_bot\\- Devolve a classificação dos cagões deste grupo \n" +
-                "/language ou /language@PoopKings\\_bot\\- Modifica o idioma por defeito do Bot \n" +
+                "/language_pt/es/en ou /language_pt/es/en@PoopKings\\_bot\\- Modifica o idioma por defeito do Bot \n" +
                 "\n" +
                 "Que começe a festa de \uD83D\uDCA9 \\!";
 
@@ -105,16 +107,16 @@ public class Messages {
                 "La lista de comandos es sencilla\\. Sólo tenéis que escribir un mensaje normal con el texto\\:\n" +
                 "/poop o /poop@PoopKings\\_bot \\- Añade \\+1 \uD83D\uDCA9 a vuestro total de cacas \n" +
                 "/top o /top@PoopKings\\_bot\\- Devuelve la clasificación de los cagones de este grupo \n" +
-                "/language o /language@PoopKings\\_bot\\- Cambia el idioma por defecto del Bot \n" +
+                "/language_pt/es/en o /language_pt/es/en@PoopKings\\_bot\\- Cambia el idioma por defecto del Bot \n" +
                 "\n" +
-                "\\¡Que empiece la fiesta de \uD83D\uDCA9 \\!";
+                "¡Que empiece la fiesta de \uD83D\uDCA9 \\!";
 
         String infoEN = "Hello\\! I\\'m the Poop Bot\\. The bot that counts all the poop you guys do in this group \\(you can be in several groups at the same time\\) \n" +
                 "Just create a group with your friends and add the Bot @PoopKings as a participant \\(look for it in your contacts\\)\n \n" +
                 "The list of commands is simple\\. You just have to write a normal message with the text:\n" +
                 "/poop or /poop@PoopKings\\_bot \\- Adds \\+1 \uD83D\uDCA9 to your total of poops \n" +
                 "/top or /top@PoopKings\\_bot\\- Returns the ranking of the poopers in this group \n" +
-                "/language or /language@PoopKings\\_bot\\- Change the Bot's language \n" +
+                "/language_pt/es/en or /language_pt/es/en@PoopKings\\_bot\\- Change the Bot's language \n" +
                 "\n" +
                 "Let the \uD83D\uDCA9 party begin\\!";
 

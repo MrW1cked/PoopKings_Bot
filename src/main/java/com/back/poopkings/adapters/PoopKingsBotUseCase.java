@@ -1,8 +1,9 @@
 package com.back.poopkings.adapters;
 
+import com.back.poopkings.helpers.Messages;
+import com.back.poopkings.models.database.LanguageMO;
 import com.back.poopkings.models.database.PodiumMO;
 import com.back.poopkings.models.database.PodiumPK;
-import com.back.poopkings.helpers.Messages;
 import com.back.poopkings.repositories.LanguageRepository;
 import com.back.poopkings.repositories.PodiumRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.util.List;
@@ -34,14 +36,13 @@ public class PoopKingsBotUseCase extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update incommingMessage) {
-        locale = checkGroupLanguage(incommingMessage);
         String messageText = incommingMessage.getMessage().getText(); //will store the User message
         String messageBody = ""; //will store the output message
         Messages messages = new Messages();
 
         // We check if the incommingMessage has a message and the message has text
         if (incommingMessage.hasMessage() && incommingMessage.getMessage().hasText()) {
-
+            locale = checkGroupLanguage(incommingMessage);
             messageBody = switch (messageText) {
                 case "/poop", "/poop@PoopKings_bot" -> {
                     updateUserScorePlusOne(incommingMessage);
@@ -49,22 +50,32 @@ public class PoopKingsBotUseCase extends TelegramLongPollingBot {
                 }
                 case "/top", "/top@PoopKings_bot" -> getTopUsers(incommingMessage, locale);
                 case "/info", "/info@PoopKings_bot" -> getWelcomeMessage(locale);
+                case "/language_es", "/language_es@PoopKings_bot" -> setUpGoupLanguage(incommingMessage, "es");
+                case "/language_en", "/language_en@PoopKings_bot" -> setUpGoupLanguage(incommingMessage, "en");
+                case "/language_pt", "/language_pt@PoopKings_bot" -> setUpGoupLanguage(incommingMessage, "pt");
                 default -> "";
             };
             sendMessage(messageBody, incommingMessage);
         }
     }
 
+
     private String checkGroupLanguage(Update incommingMessage) {
         languageRepository.findById(incommingMessage.getMessage().getChatId()).ifPresentOrElse(
                 language -> locale = language.getLanguage(),
-                () -> locale = setUpGoupLanguage(incommingMessage)
+                () -> locale = setUpGoupLanguage(incommingMessage, "en")
         );
         return locale;
     }
 
-    private String setUpGoupLanguage(Update incommingMessage) {
-
+    private String setUpGoupLanguage(Update incommingMessage, String locale) {
+        LanguageMO language = LanguageMO.builder()
+                .chatId(incommingMessage.getMessage().getChatId())
+                .groupName(incommingMessage.getMessage().getChat().getTitle())
+                .language(locale)
+                .build();
+        languageRepository.save(language);
+        return locale + "✅";
 
     }
 
