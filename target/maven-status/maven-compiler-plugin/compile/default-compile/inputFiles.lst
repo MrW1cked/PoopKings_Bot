@@ -1,6 +1,8 @@
+/Users/nusousa/Desktop/www/PoopKings-Bot/src/main/java/com/back/poopkings/helpers/Messages.java
 /Users/nusousa/Desktop/www/PoopKings-Bot/src/main/java/com/back/poopkings/repositories/PodiumRepository.java
 /Users/nusousa/Desktop/www/PoopKings-Bot/src/main/java/com/back/poopkings/models/database/PodiumPK.java
+/Users/nusousa/Desktop/www/PoopKings-Bot/src/main/java/com/back/poopkings/models/database/LanguageMO.java
 /Users/nusousa/Desktop/www/PoopKings-Bot/src/main/java/com/back/poopkings/PoopKingsApplication.java
-/Users/nusousa/Desktop/www/PoopKings-Bot/src/main/java/com/back/poopkings/models/RandomSentences.java
+/Users/nusousa/Desktop/www/PoopKings-Bot/src/main/java/com/back/poopkings/repositories/LanguageRepository.java
 /Users/nusousa/Desktop/www/PoopKings-Bot/src/main/java/com/back/poopkings/adapters/PoopKingsBotUseCase.java
 /Users/nusousa/Desktop/www/PoopKings-Bot/src/main/java/com/back/poopkings/models/database/PodiumMO.java

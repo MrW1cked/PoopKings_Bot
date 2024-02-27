@@ -2,7 +2,10 @@ com/back/poopkings/repositories/PodiumRepository.class
 com/back/poopkings/PoopKingsApplication.class
 com/back/poopkings/models/database/PodiumPK$PodiumPKBuilder.class
 com/back/poopkings/models/database/PodiumPK.class
+com/back/poopkings/models/database/LanguageMO$LanguageMOBuilder.class
 com/back/poopkings/models/database/PodiumMO.class
+com/back/poopkings/helpers/Messages.class
 com/back/poopkings/adapters/PoopKingsBotUseCase.class
-com/back/poopkings/models/RandomSentences.class
+com/back/poopkings/models/database/LanguageMO.class
+com/back/poopkings/repositories/LanguageRepository.class
 com/back/poopkings/models/database/PodiumMO$PodiumMOBuilder.class
