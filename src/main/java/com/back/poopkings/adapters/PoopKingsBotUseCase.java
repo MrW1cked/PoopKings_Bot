@@ -2,7 +2,8 @@ package com.back.poopkings.adapters;
 
 import com.back.poopkings.models.database.PodiumMO;
 import com.back.poopkings.models.database.PodiumPK;
-import com.back.poopkings.models.RandomSentences;
+import com.back.poopkings.helpers.Messages;
+import com.back.poopkings.repositories.LanguageRepository;
 import com.back.poopkings.repositories.PodiumRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,32 +21,51 @@ import java.util.stream.Collectors;
 @Slf4j
 public class PoopKingsBotUseCase extends TelegramLongPollingBot {
 
+    private String locale;
     private final PodiumRepository repository;
+    private final LanguageRepository languageRepository;
+    private Messages messages = new Messages();
 
     @Autowired
-    public PoopKingsBotUseCase(PodiumRepository repository) {
+    public PoopKingsBotUseCase(PodiumRepository repository, LanguageRepository languageRepository) {
         this.repository = repository;
+        this.languageRepository = languageRepository;
     }
 
     @Override
     public void onUpdateReceived(Update incommingMessage) {
+        locale = checkGroupLanguage(incommingMessage);
         String messageText = incommingMessage.getMessage().getText(); //will store the User message
         String messageBody = ""; //will store the output message
-        RandomSentences randomSentences = new RandomSentences();
+        Messages messages = new Messages();
 
         // We check if the incommingMessage has a message and the message has text
         if (incommingMessage.hasMessage() && incommingMessage.getMessage().hasText()) {
+
             messageBody = switch (messageText) {
                 case "/poop", "/poop@PoopKings_bot" -> {
                     updateUserScorePlusOne(incommingMessage);
-                    yield randomSentences.getRandomMessage();
+                    yield messages.getRandomMessage(locale);
                 }
-                case "/top", "/top@PoopKings_bot" -> getTopUsers(incommingMessage);
-                case "/info", "/info@PoopKings_bot" -> getWelcomeMessage();
+                case "/top", "/top@PoopKings_bot" -> getTopUsers(incommingMessage, locale);
+                case "/info", "/info@PoopKings_bot" -> getWelcomeMessage(locale);
                 default -> "";
             };
             sendMessage(messageBody, incommingMessage);
         }
+    }
+
+    private String checkGroupLanguage(Update incommingMessage) {
+        languageRepository.findById(incommingMessage.getMessage().getChatId()).ifPresentOrElse(
+                language -> locale = language.getLanguage(),
+                () -> locale = setUpGoupLanguage(incommingMessage)
+        );
+        return locale;
+    }
+
+    private String setUpGoupLanguage(Update incommingMessage) {
+
+
     }
 
     private void sendMessage(String messageBody, Update incommingMessage) {
@@ -64,22 +84,15 @@ public class PoopKingsBotUseCase extends TelegramLongPollingBot {
         }
     }
 
-    private String getWelcomeMessage() {
-        return "Olá\\! Eu sou o Poop Bot\\. O bot que conta toda a merda que voçês fazem neste grupo \\(podes estar em varios grupos aos mesmo tempo\\) \n" +
-                "Basta criares um grupo com os teus amigos e adicionar como participante o Bot @PoopKings \\(procurem nos contactos que ele existe\\)\n \n" +
-                "A lista de comandos é simples\\. So tens de escrever uma mensagem normal com o texto:\n" +
-                "/poop ou /poop@PoopKings\\_bot \\- Adiciona \\+1 \uD83D\uDCA9 ao teu total de cagadelas \n" +
-                "/top ou /top@PoopKings\\_bot\\- Devolve a classificação dos cagões deste grupo \n" +
-                "\n" +
-                "Que começe a festa de \uD83D\uDCA9 \\!";
+    private String getWelcomeMessage(String locale) {
+        return messages.getInfoMessage(locale);
     }
 
-    private String getTopUsers(Update incommingMessage) {
+    private String getTopUsers(Update incommingMessage, String locale) {
         Map<String, Integer> podium = getPodium(incommingMessage).stream().collect(
                 Collectors.toMap(PodiumMO::getName, PodiumMO::getPoops));
         //the map aboce has a name and its score (poops). now we need to sort it by score and add to the message the User name, and its score (poops)
-        return "*Nossa senhora tanta merda que vai neste grupo\\! \uD83D\uDCA9 \uD83D\uDCA9 \uD83D\uDCA9\n" +
-                "Vejamos como estão as \uD83C\uDFC6classificações\uD83C\uDFC6 dos cagões deste grupo: \uD83D\uDC47* \n" +
+        return messages.getTopMessage(locale) +
                 podium.entrySet()
                         .stream()
                         .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
