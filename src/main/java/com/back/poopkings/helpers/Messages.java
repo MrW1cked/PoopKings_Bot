@@ -74,8 +74,8 @@ public class Messages {
         sentencesES.add("¿Abriste una fábrica de mierda o qué\\?");
         sentencesES.add("Tu culo es un poeta\\. Limpialo y lee el poema que escribió\\.");
         sentencesES.add("¡Zas\\! ¡Ya perdiste 50 kilos\\!");
-        sentencesES.add("¡Una parte de ti se ha ido\\.\\.\\. ¡adiós!");
-        sentencesES.add("¡Feliz día liberando a un prisionero!");
+        sentencesES.add("¡Una parte de ti se ha ido\\.\\.\\. ¡adiós\\!");
+        sentencesES.add("¡Feliz día liberando a un prisionero\\!");
         sentencesES.add("¡Vas a tener que romperlo a la mitad para que quepa\\!");
         sentencesES.add("¡Tu trasero debe estar en el Libro Guinness\\, seguro\\!");
         sentencesES.add("¡Gracias por contribuir a esta noble causa \\<3\\!");
